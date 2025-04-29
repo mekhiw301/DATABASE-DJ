@@ -3,5 +3,30 @@
 {% block content %}
 
 <h1>Add a form that when submitted creates a new playlist!</h1>
+<div id="playlist-form">
+    <form method="POST">
+        {{ form.hidden_tag() }} 
 
+        <div>
+            {{ form.name.label }} 
+            {{ form.name(size=40) }} 
+            {% for error in form.name.errors %} 
+                <span style="color: red;">{{ error }}</span>
+            {% endfor %}
+        </div>
+
+        <div>
+            {{ form.description.label }} 
+            {{ form.description(size=40) }} 
+            {% for error in form.description.errors %} 
+                <span style="color: red;">{{ error }}</span>
+            {% endfor %}
+        </div>
+
+        <div>
+            <input type="submit" value="Submit">
+        </div>
+    </form>
+
+</div>
 {% endblock %}
